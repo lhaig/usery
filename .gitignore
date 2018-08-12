@@ -1,0 +1,10 @@
+openrc.sh
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+.DS_Store
+sandbox/secrets.json
+._*
+env_exports.sh
