@@ -148,7 +148,7 @@ The Openstack sections are not tested at the moment due to the need to have a ru
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -156,13 +156,13 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Lance Haig** - *Initial work* - [lhaig](https://github.com/lhaigh)
+* **Lance Haig** - *Initial work* - [lhaig](https://github.com/lhaig)
 
 See also the list of [contributors](https://github.com/lhaig/usery/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the GPLv3 License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GPLv3 License - see the [LICENSE.md](./LICENSE.md) file for details
 
 ## Acknowledgments
 
