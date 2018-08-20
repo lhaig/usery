@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Project List
+    </div>
+<div class="panel-body">
+  <table width="100%" class="table table-striped table-bordered table-hover" id="project-list">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for project in projects %}
+      <tr>
+        <td>{{ project.name }}</td>
+        <td>{{ project.description }}</td>
+        <td><a href="/project/?proj={{ project.id}}">Details</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

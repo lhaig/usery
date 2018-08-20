@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Field</th>
+          <th scope="col">Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>{{ project.name }}</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td>{{ project.description }}</td>
+        </tr>
+        <tr>
+          <td>Project ID</td>
+          <td>{{ project.id }}</td>
+        </tr>
+        <tr>
+          <td>Created Date</td>
+          <td>{{ project.createddate }}</td>
+        </tr>
+        <tr>
+          <td>Department</td>
+          <td>{{ project.department }}</td>
+        </tr>
+        <tr>
+          <td>User Email Address</td>
+          <td>{{ project.emailaddress }}</td>
+        </tr>
+        <tr>
+          <td>Users Username</td>
+          <td>{{ project.username }}</td>
+        </tr>
+        <tr>
+          <td>Users Name</td>
+          <td>{{ project.firstname }} {{ project.familyname }}</td>
+        </tr>
+        <tr>
+          <td>Users Telephone</td>
+          <td>{{ project.telephone }}</td>
+        </tr>
+        <tr>
+          <td>Terms Of Service</td>
+          <td>
+            <button type="button" class="btn btn-success btn-circle btn-xs"><i class="fa fa-check"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+Hello {{ firstname }} {{familyname}},
+
+Thank you for trying out the sandbox for the cloud.
+
+Your account has been created for *** {{ username }} ***
+
+and your password set to *** {{ password }} ***
+
+You can access the horizon dashboard at the following URL
+
+{{ horizon_url }}
+
+The domain that you should enter will be
+
+*** sandbox ***
+
+Please let us know if you have any questions
+
+Your cloud team.

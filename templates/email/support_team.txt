@@ -1,0 +1,16 @@
+Hello Support Team
+
+{{ firstname }} {{familyname}} has just created a new project called
+{{ project }} in the Usery Sandbox Portal.
+
+The description of the project is
+
+{{ description }}
+
+Their telephone number is
+
+{{ telephone }}
+
+Thanks
+
+The Usery Sandbox
