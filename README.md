@@ -46,7 +46,7 @@ git clone git@github.com:lhaig/usery.git
 ```
 pip install -r requirements.txt
 ```
-#### Openstack clusters with only default domain (Not Recommended for production)
+### Openstack clusters with only default domain (Not Recommended for production)
 * Create an Openstack user that will be the Sandbox admin
   * login to Openstack Horizon
   * Create am Sandbox admin user
