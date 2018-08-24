@@ -181,5 +181,5 @@ This project is licensed under the GPLv3 License - see the [LICENSE](./LICENSE) 
 ![Admin Dashboard](docs/images/admin_dashboard.png)
 ### Admin Project List
 ![Admin Project List](docs/images/admin_project_list.png)
-### Request Project
+### Admin Sandbox User List
 ![Admin Sandbox User List](docs/images/admin_sandbox_user_list.png)
