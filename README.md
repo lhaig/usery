@@ -32,6 +32,7 @@ python-dateutil==2.7.3
 django-charsleft-widget==0.1.6
 django-phonenumber-field==2.0.0
 python-decouple==3.1
+chance==0.110
 ```
 
 ### Installing
@@ -176,3 +177,9 @@ This project is licensed under the GPLv3 License - see the [LICENSE](./LICENSE) 
 ![Home](docs/images/home.png)
 ### Request Project
 ![Request](docs/images/project_request.png)
+### Admin Dashboard
+![Admin Dashboard](docs/images/admin_dashboard.png)
+### Admin Project List
+![Admin Project List](docs/images/admin_project_list.png)
+### Request Project
+![Admin Sandbox User List](docs/images/admin_sandbox_user_list.png)
