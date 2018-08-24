@@ -5,3 +5,4 @@ python-dateutil==2.7.3
 django-charsleft-widget==0.1.6
 django-phonenumber-field==2.0.0
 python-decouple==3.1
+chance==0.110
