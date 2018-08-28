@@ -1,12 +1,7 @@
 # Import library and modules
 from django.core.management.base import BaseCommand
-import datetime
-from dateutil.relativedelta import *
 from django.conf import settings
-from django.utils import crypto as pwdgen
 from modules import osauth
-
-from chance import chance
 
 class Command(BaseCommand):
     help = 'Delete Usery Sample Data'
