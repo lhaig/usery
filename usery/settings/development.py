@@ -6,13 +6,13 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 INSTALLED_APPS = [
-    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
     'widget_tweaks',
     'accounts',
     'portal',

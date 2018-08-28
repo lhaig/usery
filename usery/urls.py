@@ -1,11 +1,14 @@
 from django.contrib import admin
 from django.urls import include, path, re_path
 from django.contrib.auth import views as auth_views
+from django.contrib.admin.views.decorators import staff_member_required
+from django.views.generic import TemplateView
 
 from accounts import views as accounts_views
 from portal import views
 
 urlpatterns = [
+    path('tinymce/', include('tinymce.urls')),
     path('', views.home, name='home'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
@@ -31,6 +34,9 @@ urlpatterns = [
     path('settings/password/done/', auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'),
         name='password_change_done'),
     path('cloud_description/', views.cloud_description, name='cloud_description'),
+    path('list_static/', views.list_static.as_view(), name='list_static'),
+    path('edit_static/<int:pk>', views.edit_static.as_view(), name='edit_static'),
+    path('view_static/<int:pk>', views.view_static.as_view(), name='view_static'),
     path('terms_of_use/', views.terms_of_use, name='terms_of_use'),
     path('request_project/', views.request_project, name='request_project'),
     path('project/', views.project_detail, name='project_detail'),

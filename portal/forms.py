@@ -1,10 +1,10 @@
 from django import forms
 from django.core.validators import RegexValidator
 from django.core.validators import EmailValidator
-from modules import osauth
 from keystoneclient.exceptions import NotFound
 from phonenumber_field.formfields import PhoneNumberField
 from phonenumber_field.widgets import PhonePrefixSelect
+from modules import osauth
 
 class CreateOpenstackSandboxProjectForm(forms.Form):
     projectname = forms.CharField(
