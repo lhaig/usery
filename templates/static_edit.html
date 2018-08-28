@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Portal Static Pages{% endblock %}
+
+{% block content %}
+{{ form.media }}
+<form method="post" novalidate action='' enctype="multipart/form-data">
+  {% csrf_token %}
+  {% include 'includes/form.html' %}
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
+{% endblock %}

@@ -1,14 +1,21 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
-import datetime
-from dateutil.relativedelta import *
 from django.core.exceptions import ValidationError
 from django.utils import crypto as pwdgen
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.views.generic import ListView, DetailView
+from django.utils.decorators import method_decorator
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponse
+from django.urls import reverse_lazy
+import datetime
+from dateutil.relativedelta import *
 from modules import osauth
 from modules import email_send as mail
 from .forms import CreateOpenstackSandboxProjectForm
+from .models import SandbStatic
 
 def home(request):
     # Sets up th ehome view with data from openstack
@@ -27,13 +34,16 @@ def home(request):
         if hasattr(u, 'sandbox'):
             usrs.append(p)
             number_usrs = len(usrs)
-    return render(request, 'home.html', {'sandboxes': number_sandb, 'sandbox_users': number_usrs })
+    home_static = SandbStatic.objects.get(name='HomeStatic')
+    return render(request, 'home.html', {'sandboxes': number_sandb, 'sandbox_users': number_usrs, 'home_static': home_static })
 
 def terms_of_use(request):
-    return render(request, 'terms_of_use.html')
+    tos_content = SandbStatic.objects.get(name='Tos')
+    return render(request, 'terms_of_use.html', {'tos_content': tos_content})
 
 def cloud_description(request):
-    return render(request, 'cloud_description.html')
+    descript = SandbStatic.objects.get(name='Description')
+    return render(request, 'cloud_description.html', {'descript': descript})
 
 def request_project(request):
     form = CreateOpenstackSandboxProjectForm
@@ -93,7 +103,8 @@ def request_project(request):
             mail.send_support_team_email(settings.FROM_EMAIL, settings.SUPPORT_EMAIL, firstname, familyname, projectname, projectdescription, telephone)
 
             return redirect('request_project')
-    return render(request, 'request_project.html', { 'form': form, })
+    tos_content = SandbStatic.objects.get(name='Tos')
+    return render(request, 'request_project.html', { 'form': form, 'tos_content': tos_content })
 
 @staff_member_required
 def project_list(request):
@@ -121,3 +132,21 @@ def sandbox_user_list(request):
         if hasattr(u, 'sandbox'):
             sandbox_users.append(u)
     return render(request, 'sandbox_user_list.html', {'sandbox_users': sandbox_users})
+
+@method_decorator(staff_member_required, name='dispatch')
+class list_static(ListView):
+    model = SandbStatic
+    context_object_name = 'static_pages'
+    template_name = 'static_list.html'
+
+@method_decorator(staff_member_required, name='dispatch')
+class edit_static(UpdateView):
+    model = SandbStatic
+    fields = ['name', 'sandb_static']
+    template_name = 'static_edit.html'
+    success_url = reverse_lazy('list_static')
+
+@method_decorator(staff_member_required, name='dispatch')
+class view_static(DetailView):
+    model = SandbStatic
+    template_name = 'static_view.html'

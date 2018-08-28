@@ -50,12 +50,12 @@
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        {{ user.username }}
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                       {% if user.is_authenticated %}
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
+                        <!-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li> -->
                         <li><a href="{% url 'password_change' %}"><i class="fa fa-gear fa-fw"></i> Change Password</a>
                         </li>
                         <li class="divider"></li>
@@ -80,10 +80,19 @@
                           <a href="{% url 'home' %}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                       </li>
                       <li>
-                          <a href="{% url 'project_list' %}"><i class="fa fa-table fa-fw"></i> Project List</a>
+                          <a href="{% url 'project_list' %}"><i class="fa fa-list fa-fw"></i> Project List</a>
                       </li>
                       <li>
-                          <a href="{% url 'sandbox_user_list' %}"><i class="fa fa-table fa-fw"></i> Sandbox User List</a>
+                          <a href="{% url 'sandbox_user_list' %}"><i class="fa fa-list fa-fw"></i> Sandbox User List</a>
+                      </li>
+                      <li>
+                          <a href="#"><i class="fa fa-edit fa-fw"></i> Edit Static Pages<span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="{% url 'list_static' %}">List Static Pages</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
                       </li>
                       {% endif %}
                       <li>
