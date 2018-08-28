@@ -1,12 +1,10 @@
 # Usery Portal for Cloud Sandboxes
-### This is Alpha software at the moment
+### This is Beta software at the moment
 Usery is a portal to allow users to create themselves an openstack sandbox cloud project with no need for the cloud admins to do anything.
 It will setup a project in the the cloud, create the user necessary for accessing this project and then email the user the login details.
 It will also email the cloud support team to let them know of the new sandbox that has been created.
 
-The portal does not need a database as all the configuration and metadata about the users and projects is stored within the object metadata.
-
-The database is needed only if you would like to offer your support team the opportunity to see the metadata without needing to run commands in the command line.
+The portal needs a postgresql database to store the static file customization the Openstack metadata about the users and projects is stored within the object metadata.
 
 ## Getting Started
 
@@ -16,10 +14,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install and how to install them.
 
+Postgresql 9.6 running with a user and database configured.
+I use a docker container for this purpose.
+
 For developemnt you will need a working openstack install that you can connect to.
 I use this repository https://github.com/joestack/devstack-queens from my friend @joestack to spin up my test environment.
-
-You do not need access to a database server when developing as the server creates a sqlite database for you.
 
 You need a python 3.6.5 or later environment.
 
@@ -27,11 +26,13 @@ These packages are used
 ```
 Django==2.1
 django-widget-tweaks==1.4.2
-python-keystoneclient==3.17.0
-python-dateutil==2.7.3
 django-charsleft-widget==0.1.6
 django-phonenumber-field==2.0.0
+django-tinymce4-lite==1.7.2
+python-keystoneclient==3.17.0
+python-dateutil==2.7.3
 python-decouple==3.1
+psycopg2-binary==2.7.5
 chance==0.110
 ```
 
@@ -68,7 +69,7 @@ The .env.example should work out of the box with the openstack install mentioned
 ```
 | => ./manage.py migrate
 Operations to perform:
-  Apply all migrations: admin, auth, contenttypes, sessions
+  Apply all migrations: admin, auth, contenttypes, portal, sessions
 Running migrations:
   Applying contenttypes.0001_initial... OK
   Applying auth.0001_initial... OK
@@ -84,6 +85,7 @@ Running migrations:
   Applying auth.0007_alter_validators_add_error_messages... OK
   Applying auth.0008_alter_user_username_max_length... OK
   Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying portal.0001_initial... OK
   Applying sessions.0001_initial... OK
 ```
 
@@ -95,6 +97,14 @@ Email address: superadmin@example.com
 Password:
 Password (again):
 Superuser created successfully.
+```
+
+* Create the default static files
+
+```
+| => ./manage.py load_defaults
+Starting Portal Default Data script...
+
 ```
 
 * Run the server
@@ -113,6 +123,15 @@ Quit the server with CONTROL-C.
 * You should now be able to browse to http://127.0.0.1:8000/ and create a project.
 As this is a development environment the email is not sent to a server but printed to the django console
 
+* To load some test data in the openstack cloud run
+```
+| => ./manage.py load_fixtures
+```
+
+* To delete the fixtures you created above
+```
+| => ./manage.py delete_fixtures
+```
 
 ## Running the tests
 
@@ -183,3 +202,7 @@ This project is licensed under the GPLv3 License - see the [LICENSE](./LICENSE) 
 ![Admin Project List](docs/images/admin_project_list.png)
 ### Admin Sandbox User List
 ![Admin Sandbox User List](docs/images/admin_sandbox_user_list.png)
+### Admin Static Page List
+![Admin Static Page List](docs/images/admin_static_page_list.png)
+### Admin Static Page Edit
+![Admin Static Page Edit](docs/images/admin_static_page_edit.png)
