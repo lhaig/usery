@@ -24,6 +24,8 @@ def home(request):
     all_users = keystone.users.list(domain=settings.OPENSTACK_SANDBOX_DOMAIN)
     sandb = []
     usrs = []
+    number_sandb = 0
+    number_usrs = 0
     # returns the number of sandbox projects
     for p in proj:
         if hasattr(p, 'sandbox'):
