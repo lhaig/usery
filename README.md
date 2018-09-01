@@ -123,6 +123,21 @@ Quit the server with CONTROL-C.
 * You should now be able to browse to http://127.0.0.1:8000/ and create a project.
 As this is a development environment the email is not sent to a server but printed to the django console
 
+### Cron jobs for disabling and deleting projects
+
+In the .env file add your desired expiry in days the default is Disable after 30 days and then delete 30 days later
+
+To configure the cron job use this example
+
+```
+# m h  dom mon dow   command
+0 4 * * * /bin/python3 /srv/usery/usery/manage.py disable_sandboxes
+0 5 * * * /bin/python3 /srv/usery/usery/manage.py delete_sandboxes
+```
+
+
+## Development
+
 * To load some test data in the openstack cloud run
 ```
 | => ./manage.py load_fixtures
