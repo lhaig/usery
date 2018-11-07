@@ -24,7 +24,7 @@ You need a python 3.6.5 or later environment.
 
 These packages are used
 ```
-Django==2.1
+Django==2.1.3
 django-widget-tweaks==1.4.2
 django-charsleft-widget==0.1.6
 django-phonenumber-field==2.0.0
