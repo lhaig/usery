@@ -4,7 +4,7 @@ django-charsleft-widget==0.1.6
 django-phonenumber-field==2.0.0
 django-tinymce4-lite==1.7.2
 python-keystoneclient==3.17.0
-python-dateutil==2.7.3
+python-dateutil==2.7.5
 python-decouple==3.1
 psycopg2-binary==2.7.5
 chance==0.110
