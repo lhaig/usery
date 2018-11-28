@@ -6,6 +6,9 @@ It will also email the cloud support team to let them know of the new sandbox th
 
 The portal needs a postgresql database to store the static file customization the Openstack metadata about the users and projects is stored within the object metadata.
 
+## Integrations
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=lhaig/usery)](https://dependabot.com)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -23,18 +26,7 @@ I use this repository https://github.com/joestack/devstack-queens from my friend
 You need a python 3.6.5 or later environment.
 
 These packages are used
-```
-Django==2.1.3
-django-widget-tweaks==1.4.2
-django-charsleft-widget==0.1.6
-django-phonenumber-field==2.0.0
-django-tinymce4-lite==1.7.2
-python-keystoneclient==3.17.0
-python-dateutil==2.7.3
-python-decouple==3.1
-psycopg2-binary==2.7.5
-chance==0.110
-```
+[requirements.txt](requirements.txt)
 
 ### Installing
 
