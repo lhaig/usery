@@ -1,3 +1,7 @@
+<h1 align=center>
+<img src="logo/Logotype 1024.svg" width=40%>
+</h1>
+
 # Usery Portal for Cloud Sandboxes
 ### This is Beta software at the moment
 Usery is a portal to allow users to create themselves an openstack sandbox cloud project with no need for the cloud admins to do anything.
