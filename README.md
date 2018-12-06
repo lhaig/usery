@@ -1,5 +1,5 @@
 <h1 align=center>
-<img src="logo/Logotype 1024.svg" width=40%>
+<img src="docs/logo/Logotype 1024.svg" width=40%>
 </h1>
 
 # Usery Portal for Cloud Sandboxes
