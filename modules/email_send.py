@@ -1,7 +1,7 @@
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
-def send_email(from_email, to, firstname, familyname, username, password, horizon_url):
+def send_email(from_email, to, firstname, familyname, username, password, horizon_url, sandbox_domain):
     subject = "Usery Sandbox Portal Details"
     to = [to]
     from_email = from_email
@@ -10,7 +10,8 @@ def send_email(from_email, to, firstname, familyname, username, password, horizo
         'familyname': familyname,
         'username': username,
         'password': password,
-        'horizon_url': horizon_url
+        'horizon_url': horizon_url,
+        'sandbox_domain': sandbox_domain
     }
     message = render_to_string('email/welcome.txt', ctx)
     EmailMessage(subject, message, to=to, from_email=from_email).send()
