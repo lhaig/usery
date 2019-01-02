@@ -12,7 +12,7 @@ You can access the horizon dashboard at the following URL
 
 The domain that you should enter will be
 
-*** sandbox ***
+*** {{ sandbox_domain }} ***
 
 Please let us know if you have any questions
 

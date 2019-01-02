@@ -101,7 +101,7 @@ def request_project(request):
             user_id = keystone.users.find(name=username).id
             keystone.roles.grant(role_id, user=user_id, project=project_id)
             # Emails the user and the support team
-            mail.send_email(settings.FROM_EMAIL, emailaddress, firstname, familyname, username, password, settings.OPENSTACK_HORIZONURL)
+            mail.send_email(settings.FROM_EMAIL, emailaddress, firstname, familyname, username, password, settings.OPENSTACK_HORIZONURL, settings.OPENSTACK_SANDBOX_DOMAIN)
             mail.send_support_team_email(settings.FROM_EMAIL, settings.SUPPORT_EMAIL, firstname, familyname, projectname, projectdescription, telephone)
 
             return redirect('request_project')
