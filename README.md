@@ -23,7 +23,7 @@ The portal needs a postgresql database to store the static file customization th
 * Dedicated Openstack Domain for Sandboxes
 
 ## Detailed Installation Instructions
-* [Follow these instructions to get Usery up and running](./docs/usery/installation.md)
+* [Follow these instructions to get Usery up and running](./docs/usery/Installation.md)
 ## Development environment setup
 * [Use this to setup a developent environment](./docs/usery/development.md)
 * Colour Codes #ECC231 #CC973B #B17E3B
