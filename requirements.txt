@@ -1,7 +1,7 @@
 Django==2.1.7
 django-widget-tweaks==1.4.3
 django-charsleft-widget==0.1.7
-django-phonenumber-field==2.2.0
+django-phonenumber-field==2.3.1
 django-tinymce4-lite==1.7.4
 phonenumbers==8.10.8
 python-keystoneclient==3.19.0
