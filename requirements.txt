@@ -1,4 +1,4 @@
-Django==2.1.7
+Django==2.2
 django-widget-tweaks==1.4.3
 django-charsleft-widget==0.1.7
 django-phonenumber-field==2.3.1
