@@ -12,6 +12,7 @@ The portal needs a postgresql database to store the static file customization th
 
 ## Integrations
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=lhaig/usery)](https://dependabot.com)
+[![Open Source Helpers](https://www.codetriage.com/lhaig/usery/badges/users.svg)](https://www.codetriage.com/lhaig/usery)
 
 ## Getting Started
 ## Prerequisites
