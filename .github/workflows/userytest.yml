@@ -9,23 +9,38 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:19.6
+        env:
+          POSTGRES_USER: useryuser
+          POSTGRES_PASSWORD: userypassword
+          POSTGRES_DB: userydb
+        ports:
+        # will assign a random free host port
+        - 5432/tcp
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
-    - name: Setup PostgreSQL
-      uses: Harmon758/postgresql-action@v1.0.0
-      with:
-        postgresql version: '9.6'
-        postgresql db: userydb
-        postgresql user: useryuser
-        postgresql password: userypassword
     - uses: actions/checkout@v1
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
+      working-directory: ./postgres
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+      working-directory: ./postgres
+    - name: Create env file
+      run: |
+        mv .env.ci .env
+        echo DATABASE_PORT=${{ job.services.postgres.ports[5432] }}
+    - name: Run non DB tests
+      run: |
+        python manage.py test
     # - name: Lint with flake8
     #   run: |
     #     pip install flake8
