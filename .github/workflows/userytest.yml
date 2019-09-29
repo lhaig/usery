@@ -11,7 +11,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:19.6
+        image: postgres:9.6
         env:
           POSTGRES_USER: useryuser
           POSTGRES_PASSWORD: userypassword
