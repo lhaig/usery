@@ -13,9 +13,9 @@ jobs:
       postgres:
         image: postgres:9.6
         env:
-          POSTGRES_USER: useryuser
-          POSTGRES_PASSWORD: userypassword
-          POSTGRES_DB: userydb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
         ports:
         # will assign a random free host port
         - 5432/tcp
