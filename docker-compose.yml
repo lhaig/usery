@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+  usery_web:
+    environment:
+      - DJANGO_SETTINGS_MODULE
+      - DEBUG
+      - ALLOWED_HOSTS
+      - OPENSTACK_USERNAME
+      - OPENSTACK_PASSWORD
+      - OPENSTACK_PROJECTNAME
+      - OPENSTACK_AUTHURL
+      - OPENSTACK_HORIZONURL
+      - OPENSTACK_SANDBOX_DOMAIN
+      - OPENSTACK_USER_DOMAIN_NAME
+      - OPENSTACK_PROJECT_DOMAIN_NAME
+      - DATABASE_NAME
+      - DATABASE_USER
+      - DATABASE_PASSWORD
+      - DATABASE_HOST
+      - DATABASE_PORT
+      - FROM_EMAIL
+      - SUPPORT_EMAIL
+      - SECRET_KEY
+      - PROJECT_EXPIRY
+      - PROJECT_DELETE
+      - EMAIL_HOST
+    container_name: usery
+    image: usery
+    # image: lhaig/usery:0.1.8
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+     

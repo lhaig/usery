@@ -21,6 +21,8 @@ jobs:
         - 5432/tcp
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      openstack:
+        
 
     steps:
     - uses: actions/checkout@v1
@@ -36,6 +38,7 @@ jobs:
       run: |
         mv .env.ci .env
         echo DATABASE_PORT=${{ job.services.postgres.ports[5432] }} >> .env
+        cat .env
     - name: Run non DB tests
       run: |
         python manage.py test

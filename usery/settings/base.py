@@ -6,6 +6,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = config('SECRET_KEY')
 
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -71,10 +73,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
+# STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '../static'),
-]
+)
 
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'home'
