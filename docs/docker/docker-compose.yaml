@@ -1,0 +1,19 @@
+version: "3.2"
+services:
+  PostgreSQL:
+    container_name: ${PG_CONTAINER_NAME}
+    restart: always
+    image: postgres:9.6
+    ports:
+     - "5432:5432"
+    environment:
+      POSTGRES_USER: ${PG_USER_NAME}
+      POSTGRES_PASSWORD: ${PG_USER_PWD}
+      POSTGRES_DB: ${PG_DB_NAME}
+    volumes:
+      - ${PG_DB_PATH}:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

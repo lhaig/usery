@@ -1,0 +1,44 @@
+name: Usery Integration Tests
+
+on: [push]
+# on:
+#   pull_request:
+#     branches:
+#     - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:9.6
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+        # will assign a random free host port
+        - 5432/tcp
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      openstack:
+        
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Create env file
+      run: |
+        mv .env.ci .env
+        echo DATABASE_PORT=${{ job.services.postgres.ports[5432] }} >> .env
+        cat .env
+    - name: Run non DB tests
+      run: |
+        python manage.py test

@@ -2,5 +2,5 @@ theme: jekyll-theme-minimal
 
 title: Usery Portal for Cloud Sandboxes
 description: Usery is a portal to allow users to create an openstack sandbox cloud project with no cloud admin required. It will setup a project in the the cloud, create the user necessary for accessing this project and then email the user the login details. It will also email the cloud support team to let them know of the new sandbox that has been created. The portal needs a postgresql database to store the static file customization the Openstack metadata about the users and projects is stored within the object metadata.
-logo: /docs/logo/logo_256.svg
+logo: docs/logo/logo_256.svg
 show_downloads: true
