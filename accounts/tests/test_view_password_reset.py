@@ -15,11 +15,11 @@ class PasswordResetTests(TestCase):
         self.response = self.client.get(url)
 
     def test_status_code(self):
-        self.assertEquals(self.response.status_code, 200)
+        self.assertEqual(self.response.status_code, 200)
 
     def test_view_function(self):
         view = resolve('/reset/')
-        self.assertEquals(view.func.view_class, auth_views.PasswordResetView)
+        self.assertEqual(view.func.view_class, auth_views.PasswordResetView)
 
     def test_csrf(self):
         self.assertContains(self.response, 'csrfmiddlewaretoken')
@@ -77,11 +77,11 @@ class PasswordResetDoneTests(TestCase):
         self.response = self.client.get(url)
 
     def test_status_code(self):
-        self.assertEquals(self.response.status_code, 200)
+        self.assertEqual(self.response.status_code, 200)
 
     def test_view_function(self):
         view = resolve('/reset/done/')
-        self.assertEquals(view.func.view_class, auth_views.PasswordResetDoneView)
+        self.assertEqual(view.func.view_class, auth_views.PasswordResetDoneView)
 
 
 class PasswordResetConfirmTests(TestCase):
@@ -93,18 +93,18 @@ class PasswordResetConfirmTests(TestCase):
         based on how django creates the token internally:
         https://github.com/django/django/blob/1.11.5/django/contrib/auth/forms.py#L280
         '''
-        self.uid = urlsafe_base64_encode(force_bytes(user.pk)).decode()
+        self.uid = urlsafe_base64_encode(force_bytes(user.pk))
         self.token = default_token_generator.make_token(user)
 
         url = reverse('password_reset_confirm', kwargs={'uidb64': self.uid, 'token': self.token})
         self.response = self.client.get(url, follow=True)
 
     def test_status_code(self):
-        self.assertEquals(self.response.status_code, 200)
+        self.assertEqual(self.response.status_code, 200)
 
     def test_view_function(self):
         view = resolve('/reset/{uidb64}/{token}/'.format(uidb64=self.uid, token=self.token))
-        self.assertEquals(view.func.view_class, auth_views.PasswordResetConfirmView)
+        self.assertEqual(view.func.view_class, auth_views.PasswordResetConfirmView)
 
     def test_csrf(self):
         self.assertContains(self.response, 'csrfmiddlewaretoken')
@@ -124,7 +124,7 @@ class PasswordResetConfirmTests(TestCase):
 class InvalidPasswordResetConfirmTests(TestCase):
     def setUp(self):
         user = User.objects.create_user(username='john', email='john@doe.com', password='123abcdef')
-        uid = urlsafe_base64_encode(force_bytes(user.pk)).decode()
+        uid = urlsafe_base64_encode(force_bytes(user.pk))
         token = default_token_generator.make_token(user)
 
         '''
@@ -137,7 +137,7 @@ class InvalidPasswordResetConfirmTests(TestCase):
         self.response = self.client.get(url)
 
     def test_status_code(self):
-        self.assertEquals(self.response.status_code, 200)
+        self.assertEqual(self.response.status_code, 200)
 
     def test_html(self):
         password_reset_url = reverse('password_reset')
@@ -151,8 +151,8 @@ class PasswordResetCompleteTests(TestCase):
         self.response = self.client.get(url)
 
     def test_status_code(self):
-        self.assertEquals(self.response.status_code, 200)
+        self.assertEqual(self.response.status_code, 200)
 
     def test_view_function(self):
         view = resolve('/reset/complete/')
-        self.assertEquals(view.func.view_class, auth_views.PasswordResetCompleteView)
+        self.assertEqual(view.func.view_class, auth_views.PasswordResetCompleteView)
