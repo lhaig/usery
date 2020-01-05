@@ -41,6 +41,7 @@ jobs:
         cat .env
     - name: Run non DB tests
       env:
+        DJANGO_SETTINGS_MODULE: 'usery.settings.ci'
         DB_PORT: ${{ job.services.postgres.ports[5432] }}
       run: |
         python manage.py test
