@@ -6,7 +6,7 @@ on: [push]
 #     branches:
 #     - master
 jobs:
-  build:
+  user-vm-test:
     runs-on: ubuntu-latest
 
     services:
@@ -21,7 +21,7 @@ jobs:
         - 5432/tcp
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-      openstack:
+      #openstack:
         
 
     steps:
@@ -32,8 +32,9 @@ jobs:
         python-version: 3.7
     - name: Install dependencies
       run: |
+        apt-get install -y libpq-dev
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        python -m pip install -r requirements.txt
     - name: Create env file
       run: |
         mv .env.ci .env
