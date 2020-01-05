@@ -37,8 +37,10 @@ jobs:
     - name: Create env file
       run: |
         mv .env.ci .env
-        echo DATABASE_PORT=${{ job.services.postgres.ports[5432] }} >> .env
+        echo DAB_PORT=${{ job.services.postgres.ports[5432] }} >> .env
         cat .env
     - name: Run non DB tests
+      env:
+        DB_PORT: ${{ job.services.postgres.ports[5432] }}
       run: |
         python manage.py test
