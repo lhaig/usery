@@ -91,7 +91,7 @@ OPENSTACK_SANDBOX_DOMAIN='default'
 OPENSTACK_USER_DOMAIN_NAME='default'
 OPENSTACK_PROJECT_DOMAIN_NAME='default'
 FROM_EMAIL='usery_portal@usery.com'
-SUPPORT_EMAIL='cloud_support@usery.com')
+SUPPORT_EMAIL='cloud_support@usery.com'
 PROJECT_EXPIRY='1'
 PROJECT_DELETE='1'
 
