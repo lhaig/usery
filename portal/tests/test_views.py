@@ -9,7 +9,7 @@ class HomeTests(TestCase):
         self.response = self.client.get(url)
 
     def test_home_view_status_code(self):
-        self.assertEquals(self.response.status_code, 200)
+        self.assertEqual(self.response.status_code, 200)
 
     def test_home_view_contains_link_to_request_project(self):
         request_project_url = reverse('request_project')

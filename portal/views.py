@@ -11,7 +11,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 import datetime
-from dateutil.relativedelta import *
+from dateutil.relativedelta import datetime
 from modules import osauth
 from modules import email_send as mail
 from .forms import CreateOpenstackSandboxProjectForm
