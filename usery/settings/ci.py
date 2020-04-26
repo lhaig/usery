@@ -124,7 +124,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'statusbar': True,
     }
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = '.localhost, .usery.domain'
 
 DATABASES = {
     'default': {
